@@ -4,3 +4,4 @@ resources:
 - pod.yaml
 - ns.yaml
 - redis.yaml
+- redis-test.yaml

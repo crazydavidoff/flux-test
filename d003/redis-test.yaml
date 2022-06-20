@@ -1,0 +1,12 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: redis-test
+  namespace: flux-system   # we put HelmRelease resources into flux namespace to make use of secretRef with Git credentials
+spec:
+  releaseName: redis-test
+  targetNamespace: d003   # the namespace where Helm chart gets deployed
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: redis
+    version: 16.5.2
