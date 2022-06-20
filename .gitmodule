@@ -1,3 +1,0 @@
-[submodule "gke"]
-	path = gke
-	url = git@github.com:crazydavidoff/gke.git
