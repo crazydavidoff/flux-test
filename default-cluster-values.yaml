@@ -49,3 +49,8 @@ spec:
     name: gke
   path: "./"
   prune: true
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: d003
