@@ -24,3 +24,28 @@ data:
       graylog_ip: "10.202.1.1"   # 10.202.1.1 for Staging and Production, Dev clusters have their separate Graylog instances
       graylog_port: "12201"   # 12201 for Dev and Staging, 12202 for Production
       gelf_mode: "tcp"
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: gke
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/crazydavidoff/gke
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: gke
+  namespace: flux-system
+spec:
+  interval: 5m
+  targetNamespace: d003
+  sourceRef:
+    kind: GitRepository
+    name: gke
+  path: "./"
+  prune: true
