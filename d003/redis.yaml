@@ -25,4 +25,4 @@ spec:
       interval: 1m
   valuesFrom:
   - kind: ConfigMap
-    name: default-cluster-values
+    name: flux-system/default-cluster-values
